@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Downloading...</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <style>
+    body {
+      background: linear-gradient(120deg, #89f7fe 0%, #66a6ff 100%);
+      background-attachment: fixed;
+      background-size: cover;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    /* Position the logo in the top-right corner */
+    .logo {
+      position: fixed;
+      top: 10px;
+      right: 10px;
+      width: 100px;
+    }
+
+    .download-box {
+      background: transparent;
+      padding: 40px;
+      border-radius: 12px;
+      text-align: center;
+      color: white;
+    }
+
+    .download-box h1 {
+      font-size: 1.8rem;
+      color: #ffffff;
+      margin-bottom: 20px;
+    }
+
+    .download-box p {
+      color: #f0f0f0;
+      font-size: 1rem;
+      margin-bottom: 30px;
+    }
+
+    .spinner-border {
+      width: 3rem;
+      height: 3rem;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Logo in the top-right corner -->
+  <img src="{{ url_for('static', filename='images/mc.jpg') }}" alt="Logo" class="logo">
+
+  <div class="d-flex justify-content-center align-items-center vh-100">
+    <div class="download-box">
+      <h1>Your file is downloading...</h1>
+      <p>Please wait while we prepare your download. This will only take a moment.</p>
+      <div class="spinner-border text-light" role="status">
+        <span class="visually-hidden">Downloading...</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Hidden iframe to trigger download -->
+  <iframe src="{{ url_for('download_file', filename=filename) }}" style="display:none;"></iframe>
+
+  <!-- Redirect to thank you page -->
+  <script>
+    setTimeout(function () {
+      window.location.href = "/thank_you";
+    }, 3000);
+  </script>
+
+</body>
+</html>
