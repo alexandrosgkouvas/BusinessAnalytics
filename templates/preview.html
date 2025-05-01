@@ -82,18 +82,19 @@
         </div>
 
         <!-- Download and Redirect Buttons -->
-        <div class="button-container">
-            <!-- Green Download Button -->
-            <form action="{{ url_for('start_download') }}" method="post" class="mb-3">
-                <input type="hidden" name="filename" value="{{ download_file }}">
-                <button type="submit" class="btn btn-success btn-lg btn-custom">⬇️ Download File</button>
-            </form>
+<div class="button-container">
+    <div style="width: 100%; max-width: 400px;">
+        <!-- Green Download Button -->
+        <form action="{{ url_for('start_download') }}" method="post" class="mb-3" style="width: 100%;">
+            <input type="hidden" name="filename" value="{{ download_file }}">
+            <button type="submit" class="btn btn-success btn-lg btn-custom w-100">⬇️ Download File</button>
+        </form>
 
-            <!-- Gray Back Button -->
-            <a href="/" class="btn btn-secondary btn-lg btn-custom">⬅️ Back to Upload Page</a>
-        </div>
-
+        <!-- Gray Back Button -->
+        <a href="/" class="btn btn-secondary btn-lg btn-custom w-100">⬅️ Back to Upload Page</a>
     </div>
+</div>
+
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
